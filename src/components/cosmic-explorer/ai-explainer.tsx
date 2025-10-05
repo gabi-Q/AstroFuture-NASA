@@ -3,55 +3,71 @@
 import * as React from 'react';
 import { useActionState } from 'react';
 import { Button } from '@/components/ui/button';
-import { getExplanation, getHypotheticalScenario, type ExplanationState, type ScenarioState } from '@/app/actions';
+import { getHypotheticalScenario, type ScenarioState } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
-import { WandSparkles, BrainCircuit } from 'lucide-react';
+import { Bot, Send, X } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { useLanguage } from '@/context/language-context';
+import funFacts from '@/lib/locales/curiosities.json';
 
 interface AiExplainerProps {
   objectName: string;
 }
 
-const initialExplanationState: ExplanationState = { success: false };
+interface Message {
+  id: number;
+  text: string;
+  sender: 'user' | 'ai';
+}
+
 const initialScenarioState: ScenarioState = { success: false };
+const INACTIVITY_TIMEOUT = 30000; // 30 seconds
 
 export function AiExplainer({ objectName }: AiExplainerProps) {
   const { t, language } = useLanguage();
   const { toast } = useToast();
 
-  const [explanationState, submitExplanation, isExplanationPending] = useActionState(getExplanation, initialExplanationState);
   const [scenarioState, submitScenario, isScenarioPending] = useActionState(getHypotheticalScenario, initialScenarioState);
-
-  const [isExplanationDialogOpen, setIsExplanationDialogOpen] = React.useState(false);
-  const [isScenarioDialogOpen, setIsScenarioDialogOpen] = React.useState(false);
+  
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [messages, setMessages] = React.useState<Message[]>([]);
+  const [funFact, setFunFact] = React.useState<string | null>(null);
   const scenarioInputRef = React.useRef<HTMLTextAreaElement>(null);
+  const inactivityTimerRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  const showFunFact = React.useCallback(() => {
+    const randomFact = funFacts.funFacts[Math.floor(Math.random() * funFacts.funFacts.length)];
+    setFunFact(randomFact.fact);
+  }, []);
+
+  const resetInactivityTimer = React.useCallback(() => {
+    if (inactivityTimerRef.current) {
+      clearTimeout(inactivityTimerRef.current);
+    }
+    inactivityTimerRef.current = setTimeout(showFunFact, INACTIVITY_TIMEOUT);
+  }, [showFunFact]);
 
   React.useEffect(() => {
-    if (explanationState.success && explanationState.explanation) {
-      setIsExplanationDialogOpen(true);
-    } else if (explanationState.error) {
-      toast({
-        variant: 'destructive',
-        title: t('toast.error.title'),
-        description: explanationState.error || t('toast.error.defaultAi'),
-      });
-    }
-  }, [explanationState, toast, t]);
+    resetInactivityTimer();
+    window.addEventListener('mousemove', resetInactivityTimer);
+    window.addEventListener('keydown', resetInactivityTimer);
+    window.addEventListener('scroll', resetInactivityTimer);
+
+    return () => {
+      if (inactivityTimerRef.current) {
+        clearTimeout(inactivityTimerRef.current);
+      }
+      window.removeEventListener('mousemove', resetInactivityTimer);
+      window.removeEventListener('keydown', resetInactivityTimer);
+      window.removeEventListener('scroll', resetInactivityTimer);
+    };
+  }, [resetInactivityTimer]);
 
   React.useEffect(() => {
     if (scenarioState.success && scenarioState.evaluation) {
-      setIsScenarioDialogOpen(true);
+        setMessages(prev => [...prev, { id: Date.now(), text: scenarioState.evaluation!, sender: 'ai' }]);
     } else if (scenarioState.error) {
       toast({
         variant: 'destructive',
@@ -61,67 +77,95 @@ export function AiExplainer({ objectName }: AiExplainerProps) {
     }
   }, [scenarioState, toast, t]);
 
+  const handleFormSubmit = (formData: FormData) => {
+    resetInactivityTimer();
+    const scenario = formData.get('scenario') as string;
+    if (!scenario?.trim()) {
+        toast({
+            variant: 'destructive',
+            title: t('toast.error.title'),
+            description: t('toast.error.scenarioRequired'),
+        });
+        return;
+    }
+    setMessages(prev => [...prev, { id: Date.now(), text: scenario, sender: 'user' }]);
+    submitScenario(formData);
+    if(scenarioInputRef.current) {
+        scenarioInputRef.current.value = '';
+    }
+  }
+
+  const handleToggleChat = () => {
+    setIsOpen(!isOpen);
+    setFunFact(null); // Dismiss fun fact when opening chat
+  }
+
   return (
-    <div className="space-y-4">
-       <form action={submitExplanation}>
-          <input type="hidden" name="objectName" value={objectName} />
-          <input type="hidden" name="language" value={language === 'es' ? 'Spanish' : 'English'} />
-          <Button type="submit" disabled={isExplanationPending} className="mt-2 w-full">
-            <WandSparkles className="mr-2 h-4 w-4" />
-            {isExplanationPending ? t('ai.explainer.loading') : `${t('ai.explainer.button')} "${objectName}"`}
-          </Button>
-      </form>
-      
-      <form action={submitScenario} className="space-y-4">
-        <div className="grid w-full gap-2">
-           <Label htmlFor="hypothetical-scenario">{t('ai.hypothetical.label')}</Label>
-          <Textarea 
-            id="hypothetical-scenario"
-            name="scenario"
-            ref={scenarioInputRef}
-            placeholder={t('ai.hypothetical.placeholder')} 
-            disabled={isScenarioPending}
-          />
-           <input type="hidden" name="objectName" value={objectName} />
-           <input type="hidden" name="language" value={language === 'es' ? 'Spanish' : 'English'} />
-          <Button type="submit" disabled={isScenarioPending}>
-            <BrainCircuit className="mr-2 h-4 w-4" />
-            {isScenarioPending ? t('ai.hypothetical.loading') : t('ai.hypothetical.button')}
-          </Button>
+    <div className="fixed bottom-4 right-4 z-50 flex items-end">
+      {funFact && !isOpen && (
+        <div className="bg-background p-3 rounded-lg shadow-lg max-w-xs mr-2 relative">
+            <button onClick={() => setFunFact(null)} className="absolute top-1 right-1 text-muted-foreground hover:text-foreground">
+                <X size={16} />
+            </button>
+            <p className="text-sm">{funFact}</p>
         </div>
-      </form>
+      )}
+        <Button 
+            onClick={handleToggleChat}
+            className="rounded-full w-16 h-16 shadow-lg"
+            aria-label={t('ai.hypothetical.title')}
+        >
+            {isOpen ? <X className="h-8 w-8" /> : <Bot className="h-8 w-8" />}
+        </Button>
 
-      <AlertDialog open={isExplanationDialogOpen} onOpenChange={setIsExplanationDialogOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{t('ai.explainer.dialogTitle')} {objectName}</AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="prose prose-invert text-foreground max-h-[60vh] overflow-y-auto">
-               {explanationState.explanation}
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction onClick={() => setIsExplanationDialogOpen(false)}>{t('common.close')}</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      <AlertDialog open={isScenarioDialogOpen} onOpenChange={setIsScenarioDialogOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>{t('ai.hypothetical.dialogTitle')}</AlertDialogTitle>
-            <AlertDialogDescription asChild>
-              <div className="prose prose-invert text-foreground max-h-[60vh] overflow-y-auto">
-                {scenarioState.evaluation}
-              </div>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction onClick={() => setIsScenarioDialogOpen(false)}>{t('common.close')}</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+        {isOpen && (
+            <Card className="fixed bottom-24 right-4 z-50 w-full max-w-sm flex flex-col shadow-xl" style={{ height: '60vh'}}>
+                <CardHeader>
+                    <CardTitle>{t('ai.hypothetical.title')}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow overflow-hidden">
+                    <ScrollArea className="h-full pr-4">
+                        <div className="space-y-4">
+                            {messages.map((message) => (
+                                <div key={message.id} className={`flex items-end gap-2 ${message.sender === 'user' ? 'justify-end' : ''}`}>
+                                    {message.sender === 'ai' && <Bot className="w-6 h-6 flex-shrink-0" />}
+                                    <div className={`rounded-lg px-3 py-2 text-sm ${message.sender === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+                                        {message.text}
+                                    </div>
+                                </div>
+                            ))}
+                             {isScenarioPending && (
+                                <div className="flex items-end gap-2">
+                                    <Bot className="w-6 h-6 flex-shrink-0" />
+                                    <div className="rounded-lg px-3 py-2 text-sm bg-muted animate-pulse">
+                                        {t('ai.hypothetical.loading')}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </ScrollArea>
+                </CardContent>
+                <CardFooter>
+                     <form action={handleFormSubmit} className="flex w-full items-center space-x-2">
+                        <Textarea
+                            id="hypothetical-scenario"
+                            name="scenario"
+                            ref={scenarioInputRef}
+                            placeholder={t('ai.hypothetical.placeholder')}
+                            className="flex-1 resize-none"
+                            disabled={isScenarioPending}
+                            onFocus={resetInactivityTimer}
+                        />
+                        <input type="hidden" name="objectName" value={objectName} />
+                        <input type="hidden" name="language" value={language === 'es' ? 'Spanish' : 'English'} />
+                        <Button type="submit" size="icon" disabled={isScenarioPending}>
+                            <Send className="h-4 w-4" />
+                            <span className="sr-only">{t('cuestionario.submit')}</span>
+                        </Button>
+                    </form>
+                </CardFooter>
+            </Card>
+        )}
     </div>
   );
 }

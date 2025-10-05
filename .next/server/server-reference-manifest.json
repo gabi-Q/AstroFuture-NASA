@@ -1,0 +1,28 @@
+{
+  "node": {
+    "60d3402cad185968b7d2aa31332d53c09fa4924180": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    },
+    "6075eaf8ef342b8f1e0e312f5e46446b8316a07c46": {
+      "workers": {
+        "app/cuestionario/page": {
+          "moduleId": "[project]/.next-internal/server/app/cuestionario/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/cuestionario/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "9E2vTkJEKhH3kXktZsBz8KoMLKC8turjLlV+wctYcOg="
+}

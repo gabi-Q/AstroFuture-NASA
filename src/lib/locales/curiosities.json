@@ -1,0 +1,24 @@
+{
+  "funFacts": [
+    {
+      "id": 1,
+      "fact": "¿Sabías que el Sol es tan grande que podrían caber aproximadamente 1.3 millones de planetas Tierra dentro de él?"
+    },
+    {
+      "id": 2,
+      "fact": "En Venus, un día dura más que un año. Tarda 243 días terrestres en rotar sobre su eje y 225 días terrestres en orbitar al Sol."
+    },
+    {
+      "id": 3,
+      "fact": "La galaxia de Andrómeda, nuestro vecino galáctico más cercano, está en curso de colisión con nuestra Vía Láctea. ¡Pero no te preocupes, se espera que esto suceda en unos 4.5 mil millones de años!"
+    },
+    {
+      "id": 4,
+      "fact": "Los agujeros negros no son realmente agujeros. Son objetos increíblemente densos con una gravedad tan fuerte que nada, ni siquiera la luz, puede escapar de ellos."
+    },
+    {
+      "id": 5,
+      "fact": "Si pudieras viajar a la velocidad de la luz, ¡podrías dar la vuelta a la Tierra 7.5 veces en un solo segundo!"
+    }
+  ]
+}
