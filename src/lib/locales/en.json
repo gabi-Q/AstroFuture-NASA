@@ -102,6 +102,7 @@
     "nextQuestion": "Next Question",
     "newQuiz": "Start New Quiz",
     "checkAnswers": "Check Answers",
+    "startQuiz": "Answer and Play",
     "category": {
       "placeholder": "Select a category"
     }

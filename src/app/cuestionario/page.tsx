@@ -91,6 +91,8 @@ export default function CuestionarioPage() {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [category, setCategory] = React.useState('Asteroids');
   const [results, setResults] = React.useState<boolean[]>([]);
+  const [quizStarted, setQuizStarted] = React.useState(false);
+  const quizMinigameRef = React.useRef<HTMLDivElement>(null);
 
   const handleAnswerChange = (questionIndex: number, answer: string) => {
     const newAnswers = [...selectedAnswers];
@@ -105,6 +107,9 @@ export default function CuestionarioPage() {
     });
     setResults(newResults);
     setIsSubmitted(true);
+    setTimeout(() => {
+      quizMinigameRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
   
   const startNewQuiz = React.useCallback(() => {
@@ -119,11 +124,12 @@ export default function CuestionarioPage() {
       submitAction(formData);
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category, language]);
-  
-  React.useEffect(() => {
+  }, [category, language, submitAction]);
+
+  const handleStartQuiz = () => {
+    setQuizStarted(true);
     startNewQuiz();
-  }, [startNewQuiz]);
+  };
 
   const allQuestionsAnswered = selectedAnswers.every(answer => answer !== null) && selectedAnswers.length === 3;
 
@@ -146,53 +152,67 @@ export default function CuestionarioPage() {
         </div>
 
         <div className="space-y-8">
-          {isPending && (
-            <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
-              <Loader2 className="h-12 w-12 animate-spin text-primary mb-4" />
-              <p className="text-lg text-muted-foreground">{t('cuestionario.loading')}</p>
+          {!quizStarted ? (
+            <div className="text-center">
+                <div className="mb-8">
+                    <QuizMinigame results={[]} />
+                </div>
+              <Button size="lg" onClick={handleStartQuiz}>
+                {t('cuestionario.startQuiz')}
+              </Button>
             </div>
-          )}
-
-          {!isPending && quizState.error && (
-            <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
-                <XCircle className="h-12 w-12 text-destructive mb-4" />
-                <p className="text-lg text-destructive">{t('toast.error.title')}</p>
-                <p className="text-muted-foreground">{quizState.error}</p>
-            </div>
-          )}
-
-          {!isPending && quizState.success && quizState.questions && (
+          ) : (
             <>
-              {quizState.questions.map((q, index) => (
-                <QuestionCard 
-                  key={index}
-                  question={q}
-                  questionIndex={index}
-                  selectedAnswer={selectedAnswers[index]}
-                  onAnswerChange={(answer) => handleAnswerChange(index, answer)}
-                  isSubmitted={isSubmitted}
-                  t={t}
-                />
-              ))}
+              {isPending && (
+                <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
+                  <Loader2 className="h-12 w-12 animate-spin text-primary mb-4" />
+                  <p className="text-lg text-muted-foreground">{t('cuestionario.loading')}</p>
+                </div>
+              )}
 
-              <div className="flex justify-center pt-4">
-                {!isSubmitted ? (
-                  <Button 
-                    size="lg" 
-                    onClick={handleCheckAnswers}
-                    disabled={!allQuestionsAnswered}
-                  >
-                    {t('cuestionario.checkAnswers')}
-                  </Button>
-                ) : (
-                  <Button size="lg" onClick={startNewQuiz}>
-                    {t('cuestionario.newQuiz')}
-                  </Button>
-                )}
-              </div>
+              {!isPending && quizState.error && (
+                <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
+                    <XCircle className="h-12 w-12 text-destructive mb-4" />
+                    <p className="text-lg text-destructive">{t('toast.error.title')}</p>
+                    <p className="text-muted-foreground">{quizState.error}</p>
+                </div>
+              )}
 
-              {isSubmitted && (
-                <QuizMinigame results={results} />
+              {!isPending && quizState.success && quizState.questions && (
+                <>
+                  {quizState.questions.map((q, index) => (
+                    <QuestionCard 
+                      key={index}
+                      question={q}
+                      questionIndex={index}
+                      selectedAnswer={selectedAnswers[index]}
+                      onAnswerChange={(answer) => handleAnswerChange(index, answer)}
+                      isSubmitted={isSubmitted}
+                      t={t}
+                    />
+                  ))}
+
+                  <div className="flex justify-center pt-4">
+                    {!isSubmitted ? (
+                      <Button 
+                        size="lg" 
+                        onClick={handleCheckAnswers}
+                        disabled={!allQuestionsAnswered}
+                      >
+                        {t('cuestionario.checkAnswers')}
+                      </Button>
+                    ) : (
+                      <Button size="lg" onClick={startNewQuiz}>
+                        {t('cuestionario.newQuiz')}
+                      </Button>
+                    )}
+                  </div>
+                  <div ref={quizMinigameRef}>
+                    {isSubmitted && (
+                      <QuizMinigame results={results} />
+                    )}
+                  </div>
+                </>
               )}
             </>
           )}
