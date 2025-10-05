@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///home/user/AstroFuture-NASA/src/app/simulation/page.tsx"],"sourcesContent":["'use client';\n\nimport { useLanguage } from '@/context/language-context';\n\nexport default function SimulationPage() {\n  const { t } = useLanguage();\n\n  return (\n    <div className=\"container mx-auto px-4 py-8\">\n      <h1 className=\"text-4xl font-bold tracking-tighter mb-8\">{t('simulation.page.title')}</h1>\n      <div className=\"w-full h-[80vh]\">\n        <iframe\n          src=\"https://i-asimualcion.vercel.app/\"\n          className=\"w-full h-full\"\n          title=\"Google\"\n        ></iframe>\n      </div>\n    </div>\n  );\n}\n\n"],"names":[],"mappings":";;;;AAEA;AAFA;;;AAIe,SAAS;IACtB,MAAM,EAAE,CAAC,EAAE,GAAG,CAAA,GAAA,sIAAA,CAAA,cAAW,AAAD;IAExB,qBACE,8OAAC;QAAI,WAAU;;0BACb,8OAAC;gBAAG,WAAU;0BAA4C,EAAE;;;;;;0BAC5D,8OAAC;gBAAI,WAAU;0BACb,cAAA,8OAAC;oBACC,KAAI;oBACJ,WAAU;oBACV,OAAM;;;;;;;;;;;;;;;;;AAKhB","debugId":null}}]
-}
