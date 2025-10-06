@@ -74,8 +74,10 @@
     },
     "hypothetical": {
       "title": "Escenarios Hipotéticos",
+      "titleGeneric": "Asistente Cósmico de IA",
       "label": "¿Qué pasaría si...?",
       "placeholder": "Ej: ...su órbita fuera el doble de excéntrica?",
+      "placeholderGeneric": "Ej: ¿Qué tan grande es el universo?",
       "button": "Evaluar Escenario",
       "loading": "Evaluando...",
       "dialogTitle": "Evaluación del Escenario Hipotético"

@@ -1,7 +1,6 @@
 import type { EnrichedSpaceObject } from './main-view';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { AiExplainer } from './ai-explainer';
 import { TrajectorySimulation } from './trajectory-simulation';
 import { Diameter, Group, Gauge, Milestone, Orbit, AlertTriangle, ArrowRight } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
@@ -110,7 +109,6 @@ const ViewContent = ({ object, children }: { object: EnrichedSpaceObject, childr
             </div>
             <div className="flex flex-col gap-6">
                 <TrajectorySimulation orbit={simulationOrbit} speed={simulationSpeed}/>
-                <AiExplainer objectName={object.name} />
             </div>
         </div>
     );

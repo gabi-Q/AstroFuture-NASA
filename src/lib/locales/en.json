@@ -74,8 +74,10 @@
     },
     "hypothetical": {
       "title": "Hypothetical Scenarios",
+      "titleGeneric": "Cosmic AI Assistant",
       "label": "What if...?",
       "placeholder": "e.g., ...its orbit were twice as eccentric?",
+      "placeholderGeneric": "e.g., How big is the universe?",
       "button": "Evaluate Scenario",
       "loading": "Evaluating...",
       "dialogTitle": "Hypothetical Scenario Evaluation"

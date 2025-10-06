@@ -40,16 +40,22 @@ export async function getHypotheticalScenario(
   prevState: ScenarioState,
   formData: FormData
 ): Promise<ScenarioState> {
-  const objectName = formData.get('objectName') as string;
+  const objectName = formData.get('objectName') as string | null;
   const scenario = formData.get('scenario') as string;
   const language = formData.get('language') as string;
   
   try {
-    if (!objectName || !scenario) {
-      return { success: false, error: 'Object name and scenario are required.' };
+    if (!scenario) {
+      return { success: false, error: 'Please enter a scenario or question.' };
     }
-    const result = await evaluateHypotheticalScenario({ objectName, scenario, language });
-    return { success: true, evaluation: result.evaluation };
+
+    if (objectName) {
+      const result = await evaluateHypotheticalScenario({ objectName, scenario, language });
+      return { success: true, evaluation: result.evaluation };
+    } else {
+      const result = await explainAstronomicalConcept({ objectName: scenario, language });
+      return { success: true, evaluation: result.explanation };
+    }
   } catch (error) {
     console.error('Error in getHypotheticalScenario action:', error);
     return { success: false, error: 'An unexpected error occurred while evaluating the scenario.' };

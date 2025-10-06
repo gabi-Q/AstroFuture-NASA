@@ -30,11 +30,8 @@ export function Navbar() {
           </Link>
           <div className="flex items-center gap-2 md:gap-6">
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-              <Link href="/#featured-asteroids" className="text-foreground hover:text-primary transition-colors">
-                {t('nav.asteroids')}
-              </Link>
-              <Link href="/#featured-comets" className="text-foreground hover:text-primary transition-colors">
-                {t('nav.comets')}
+              <Link href="/aprende" className="text-foreground hover:text-primary transition-colors">
+                Aprende
               </Link>
               <Link href="/explorer" className="text-foreground hover:text-primary transition-colors">
                 {t('nav.explorer')}
@@ -71,11 +68,8 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="left">
                 <nav className="grid gap-6 text-lg font-medium mt-8">
-                  <Link href="/#featured-asteroids" className="text-foreground hover:text-primary transition-colors">
-                    {t('nav.asteroids')}
-                  </Link>
-                  <Link href="/#featured-comets" className="text-foreground hover:text-primary transition-colors">
-                    {t('nav.comets')}
+                  <Link href="/aprende" className="text-foreground hover:text-primary transition-colors">
+                    Aprende
                   </Link>
                   <Link href="/explorer" className="text-foreground hover:text-primary transition-colors">
                     {t('nav.explorer')}

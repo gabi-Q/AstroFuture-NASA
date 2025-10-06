@@ -13,7 +13,7 @@ import { useLanguage } from '@/context/language-context';
 import funFacts from '@/lib/locales/curiosities.json';
 
 interface AiExplainerProps {
-  objectName: string;
+  objectName?: string;
 }
 
 interface Message {
@@ -100,6 +100,14 @@ export function AiExplainer({ objectName }: AiExplainerProps) {
     setFunFact(null); // Dismiss fun fact when opening chat
   }
 
+  const placeholder = objectName 
+    ? t('ai.hypothetical.placeholder')
+    : t('ai.hypothetical.placeholderGeneric');
+
+  const title = objectName
+    ? t('ai.hypothetical.title')
+    : t('ai.hypothetical.titleGeneric');
+
   return (
     <div className="fixed bottom-4 right-4 z-50 flex items-end">
       {funFact && !isOpen && (
@@ -113,7 +121,7 @@ export function AiExplainer({ objectName }: AiExplainerProps) {
         <Button 
             onClick={handleToggleChat}
             className="rounded-full w-16 h-16 shadow-lg"
-            aria-label={t('ai.hypothetical.title')}
+            aria-label={title}
         >
             {isOpen ? <X className="h-8 w-8" /> : <Bot className="h-8 w-8" />}
         </Button>
@@ -121,7 +129,7 @@ export function AiExplainer({ objectName }: AiExplainerProps) {
         {isOpen && (
             <Card className="fixed bottom-24 right-4 z-50 w-full max-w-sm flex flex-col shadow-xl" style={{ height: '60vh'}}>
                 <CardHeader>
-                    <CardTitle>{t('ai.hypothetical.title')}</CardTitle>
+                    <CardTitle>{title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow overflow-hidden">
                     <ScrollArea className="h-full pr-4">
@@ -151,12 +159,12 @@ export function AiExplainer({ objectName }: AiExplainerProps) {
                             id="hypothetical-scenario"
                             name="scenario"
                             ref={scenarioInputRef}
-                            placeholder={t('ai.hypothetical.placeholder')}
+                            placeholder={placeholder}
                             className="flex-1 resize-none"
                             disabled={isScenarioPending}
                             onFocus={resetInactivityTimer}
                         />
-                        <input type="hidden" name="objectName" value={objectName} />
+                        {objectName && <input type="hidden" name="objectName" value={objectName} />}
                         <input type="hidden" name="language" value={language === 'es' ? 'Spanish' : 'English'} />
                         <Button type="submit" size="icon" disabled={isScenarioPending}>
                             <Send className="h-4 w-4" />
