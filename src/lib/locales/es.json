@@ -169,6 +169,15 @@
     "close": "Cerrar"
   },
   "aprende": {
-    "title": "Aprende sobre el Cosmos"
+    "title": "Aprende sobre el Cosmos",
+    "featuredAsteroids": {
+      "title": "Asteroides Destacados"
+    },
+    "featuredComets": {
+      "title": "Cometas Destacados"
+    },
+    "viewAll": {
+      "cta": "Explorar todos los objetos"
+    }
   }
 }

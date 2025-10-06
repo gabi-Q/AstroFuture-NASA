@@ -57,7 +57,7 @@
     "searchPlaceholder": "Search objects...",
     "filterByType": "Filter by type",
     "allTypes": "All types",
-    "potentiallyHazardous": "Potentially hazardous",
+    "potentiallyHazardous": "Potencialmente peligroso",
     "noObjectsFound": {
       "title": "No objects found",
       "subtitle": "Try adjusting your search or filters."
@@ -169,6 +169,15 @@
     "close": "Close"
   },
   "aprende": {
-    "title": "Learn about the Cosmos"
+    "title": "Learn about the Cosmos",
+    "featuredAsteroids": {
+      "title": "Featured Asteroids"
+    },
+    "featuredComets": {
+      "title": "Featured Comets"
+    },
+    "viewAll": {
+      "cta": "Explore all objects"
+    }
   }
 }

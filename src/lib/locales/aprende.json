@@ -5,13 +5,13 @@
         "id": "asteroide",
         "title": "¿Qué es un asteroide?",
         "description": "Un asteroide es un cuerpo rocoso, más pequeño que un planeta, que orbita alrededor del Sol. La mayoría se encuentran en el cinturón de asteroides, entre Marte y Júpiter.",
-        "imageUrl": "/images/asteroid.jpg"
+        "imageUrl": "https://images-assets.nasa.gov/image/PIA21079/PIA21079~small.jpg"
       },
       {
         "id": "cometa",
         "title": "¿Qué es un cometa?",
         "description": "Un cometa es un cuerpo helado que libera gas o polvo. A menudo se les llama \"bolas de nieve sucias\". Tienen colas que apuntan lejos del Sol.",
-        "imageUrl": "/images/comet.jpg"
+        "imageUrl": "https://images-assets.nasa.gov/image/PIA17485/PIA17485~thumb.jpg"
       },
       {
         "id": "planeta",
@@ -27,13 +27,13 @@
         "id": "asteroid",
         "title": "What is an asteroid?",
         "description": "An asteroid is a rocky body, smaller than a planet, that orbits the Sun. Most are found in the asteroid belt, between Mars and Jupiter.",
-        "imageUrl": "/images/asteroid.jpg"
+        "imageUrl": "https://images-assets.nasa.gov/image/PIA21079/PIA21079~small.jpg"
       },
       {
         "id": "comet",
         "title": "What is a comet?",
         "description": "A comet is an icy body that releases gas or dust. They are often called \"dirty snowballs\". They have tails that point away from the Sun.",
-        "imageUrl": "/images/comet.jpg"
+        "imageUrl": "https://images-assets.nasa.gov/image/PIA17485/PIA17485~thumb.jpg"
       },
       {
         "id": "planet",

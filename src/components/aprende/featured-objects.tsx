@@ -90,7 +90,7 @@ export function FeaturedObjects() {
         <section id="featured-asteroids" className="py-20 md:py-32">
           <div className="container mx-auto px-4 space-y-20">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-center mb-12">{t('home.featuredAsteroids.title')}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-center mb-12">{t('aprende.featuredAsteroids.title')}</h2>
               <FeaturedObjectViewer objects={featuredAsteroids} />
             </div>
           </div>
@@ -99,14 +99,14 @@ export function FeaturedObjects() {
         <section id="featured-comets" className="py-20 md:py-32 bg-card/20">
           <div className="container mx-auto px-4 space-y-20">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-center mb-12">{t('home.featuredComets.title')}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-center mb-12">{t('aprende.featuredComets.title')}</h2>
               <FeaturedObjectViewer objects={featuredComets} />
             </div>
 
             <div className="text-center pt-8">
               <Link href="/explorer">
                 <Button size="lg" variant="outline">
-                  {t('home.viewAll.cta')} <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('aprende.viewAll.cta')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
