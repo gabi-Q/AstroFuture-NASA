@@ -41,6 +41,7 @@
     },
     "cta": {
       "title": "It's your turn to explore the cosmos!",
+      "subtitle": "It's your turn to explore the cosmos!",
       "button": "Start your journey"
     }
   },
@@ -57,7 +58,7 @@
     "searchPlaceholder": "Search objects...",
     "filterByType": "Filter by type",
     "allTypes": "All types",
-    "potentiallyHazardous": "Potencialmente peligroso",
+    "potentiallyHazardous": "Potentially Hazardous",
     "noObjectsFound": {
       "title": "No objects found",
       "subtitle": "Try adjusting your search or filters."
