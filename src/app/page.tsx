@@ -5,6 +5,11 @@ import { ArrowDown } from 'lucide-react';
 import { AnimatedStarfield } from '@/components/cosmic-explorer/animated-starfield';
 import { useLanguage } from '@/context/language-context';
 import { AiExplainer } from '@/components/cosmic-explorer/ai-explainer';
+import { WhatIsAstroFuture } from '@/components/cosmic-explorer/what-is-astro-future';
+import { HowItWorks } from '@/components/cosmic-explorer/how-it-works';
+import { WhyItIsImportant } from '@/components/cosmic-explorer/why-it-is-important';
+import { CallToAction } from '@/components/cosmic-explorer/call-to-action';
+import { Footer } from '@/components/cosmic-explorer/footer';
 
 export default function Home() {
   const { t } = useLanguage();
@@ -27,6 +32,11 @@ export default function Home() {
             </Link>
           </div>
         </section>
+        <WhatIsAstroFuture />
+        <HowItWorks />
+        <WhyItIsImportant />
+        <CallToAction />
+        <Footer />
       </main>
       <AiExplainer />
     </div>

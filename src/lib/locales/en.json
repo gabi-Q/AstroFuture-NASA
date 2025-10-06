@@ -11,19 +11,40 @@
   },
   "home": {
     "hero": {
-      "title": "Explore the Wonders of the Cosmos",
-      "subtitle": "Navigate through asteroids, comets, and other celestial objects in our cosmic neighborhood.",
-      "cta": "Start Exploring"
+      "title": "Explore the Cosmos with ASTRO FUTURE!",
+      "subtitle": "Learn about asteroids, comets, and more through interactive 3D simulations.",
+      "cta": "Start now!"
     },
-    "featuredAsteroids": {
-      "title": "Featured Asteroids"
+    "what_is": {
+      "title": "What is ASTRO FUTURE?",
+      "description": "ASTRO FUTURE is an educational platform that transforms complex space data from NASA into interactive experiences. Explore asteroids and comets in 3D, modify their orbit, and see how the impact on the planet changes. With our virtual assistant, learning about space has never been so fun!"
     },
-    "featuredComets": {
-      "title": "Famous Comets"
+    "how_it_works": {
+      "title": "How does it work?",
+      "simulations": {
+        "title": "3D Simulations",
+        "description": "Explore space in a visual and interactive way."
+      },
+      "assistant": {
+        "title": "Virtual assistant",
+        "description": "Learn with the help of a smart guide that will help you at every step."
+      },
+      "learning": {
+        "title": "Active learning",
+        "description": "You don't just read about space, you experience it!"
+      }
     },
-    "viewAll": {
-      "cta": "Explore Full Gallery"
+    "why_it_is_important": {
+      "title": "Why is it important?",
+      "description": "The STEM vocation in Peru is low, but with ASTRO FUTURE, we transform learning about science and technology into something interactive and fun. Our mission is to make it possible for everyone, from students to space enthusiasts, to understand the mysteries of the universe."
+    },
+    "cta": {
+      "title": "It's your turn to explore the cosmos!",
+      "button": "Start your journey"
     }
+  },
+  "footer": {
+    "rights": "All rights reserved."
   },
   "card": {
     "hazardous": "Hazardous",

@@ -11,19 +11,40 @@
   },
   "home": {
     "hero": {
-      "title": "Explora las Maravillas del Cosmos",
-      "subtitle": "Navega a través de asteroides, cometas y otros objetos celestes en nuestro vecindario cósmico.",
-      "cta": "Comienza a Explorar"
+      "title": "¡Explora el Cosmos con ASTRO FUTURE!",
+      "subtitle": "Aprende sobre asteroides, cometas y más a través de simulaciones 3D interactivas.",
+      "cta": "¡Comienza ahora!"
     },
-    "featuredAsteroids": {
-      "title": "Asteroides Destacados"
+    "what_is": {
+      "title": "¿Qué es ASTRO FUTURE?",
+      "description": "ASTRO FUTURE es una plataforma educativa que transforma los complejos datos espaciales de la NASA en experiencias interactivas. Explora asteroides y cometas en 3D, modifica su órbita y observa cómo cambia el impacto en el planeta. ¡Con nuestro asistente virtual, aprender sobre el espacio nunca fue tan divertido!"
     },
-    "featuredComets": {
-      "title": "Cometas Famosos"
+    "how_it_works": {
+      "title": "¿Cómo Funciona?",
+      "simulations": {
+        "title": "Simulaciones 3D",
+        "description": "Explora el espacio de manera visual e interactiva."
+      },
+      "assistant": {
+        "title": "Asistente virtual",
+        "description": "Aprende con la ayuda de un guía inteligente que te ayudará en cada paso."
+      },
+      "learning": {
+        "title": "Aprendizaje activo",
+        "description": "No solo lees sobre el espacio, ¡lo experimentas!"
+      }
     },
-    "viewAll": {
-      "cta": "Explorar la Galería Completa"
+    "why_it_is_important": {
+      "title": "¿Por qué es importante?",
+      "description": "La vocación STEM en Perú es baja, pero con ASTRO FUTURE, transformamos el aprendizaje de la ciencia y la tecnología en algo interactivo y divertido. Nuestra misión es hacer que todos, desde estudiantes hasta curiosos del espacio, puedan entender los misterios del universo."
+    },
+    "cta": {
+      "title": "¡Es tu turno de explorar el cosmos!",
+      "button": "Comienza tu viaje"
     }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
   },
   "card": {
     "hazardous": "Peligroso",
