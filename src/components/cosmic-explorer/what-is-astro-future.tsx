@@ -17,8 +17,6 @@ export function WhatIsAstroFuture() {
         </div>
         <div className="max-w-4xl mx-auto">
           <iframe 
-            width="560" 
-            height="315" 
             src="https://www.youtube.com/embed/1W79mprWnag?si=0peTiEiqQwAR7nDN" 
             title="YouTube video player" 
             frameBorder="0" 

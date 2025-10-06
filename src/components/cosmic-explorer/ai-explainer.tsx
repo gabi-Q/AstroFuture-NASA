@@ -39,8 +39,8 @@ export function AiExplainer({ objectName }: AiExplainerProps) {
 
   const showFunFact = React.useCallback(() => {
     const randomFact = funFacts.funFacts[Math.floor(Math.random() * funFacts.funFacts.length)];
-    setFunFact(randomFact.fact);
-  }, []);
+    setFunFact(language === 'es' ? randomFact.fact_es : randomFact.fact_en);
+  }, [language]);
 
   const resetInactivityTimer = React.useCallback(() => {
     if (inactivityTimerRef.current) {
