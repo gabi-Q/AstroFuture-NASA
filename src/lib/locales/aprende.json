@@ -1,0 +1,22 @@
+{
+  "celestialObjects": [
+    {
+      "id": "asteroide",
+      "title": "¿Qué es un asteroide?",
+      "description": "Un asteroide es un cuerpo rocoso, más pequeño que un planeta, que orbita alrededor del Sol. La mayoría se encuentran en el cinturón de asteroides, entre Marte y Júpiter.",
+      "imageUrl": "https://images-assets.nasa.gov/image/PIA21079/PIA21079~small.jpg"
+    },
+    {
+      "id": "cometa",
+      "title": "¿Qué es un cometa?",
+      "description": "Un cometa es un cuerpo helado que libera gas o polvo. A menudo se les llama \"bolas de nieve sucias\". Tienen colas que apuntan lejos del Sol.",
+      "imageUrl": "https://images-assets.nasa.gov/image/PIA17485/PIA17485~thumb.jpg"
+    },
+    {
+      "id": "planeta",
+      "title": "¿Qué es un planeta?",
+      "description": "Un planeta es un cuerpo celeste que (a) está en órbita alrededor del Sol, (b) tiene suficiente masa para que su propia gravedad supere las fuerzas de un cuerpo rígido de modo que adquiera una forma de equilibrio hidrostático (casi redonda), y (c) ha limpiado la vecindad de su órbita.",
+      "imageUrl": "https://images-assets.nasa.gov/image/PIA00342/PIA00342~small.jpg"
+    }
+  ]
+}
