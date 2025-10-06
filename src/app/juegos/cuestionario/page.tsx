@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Link from 'next/link';
 import { useActionState } from 'react';
 import { getQuizQuestions, type QuizQuestionState, type GenerateQuizQuestionOutput } from '@/app/actions';
 import { Button } from '@/components/ui/button';
@@ -8,11 +9,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Loader2, CheckCircle2, XCircle } from 'lucide-react';
+import { Loader2, CheckCircle2, XCircle, ChevronLeft } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { QuizMinigame } from '@/components/cosmic-explorer/quiz-minigame';
-
 
 const initialQuizState: QuizQuestionState = { success: false };
 
@@ -135,6 +135,14 @@ export default function CuestionarioPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
+        <div className="mb-8">
+            <Link href="/juegos">
+            <Button variant="outline">
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                {t('juegos.back_to_menu')}
+            </Button>
+            </Link>
+        </div>
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold tracking-tighter">{t('cuestionario.page.title')}</h1>

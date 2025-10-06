@@ -39,8 +39,8 @@ export function Navbar() {
               <Link href="/simulation" className="text-foreground hover:text-primary transition-colors">
                 {t('nav.simulation')}
               </Link>
-              <Link href="/cuestionario" className="text-foreground hover:text-primary transition-colors">
-                {t('nav.cuestionario')}
+              <Link href="/juegos" className="text-foreground hover:text-primary transition-colors">
+                {t('nav.juegos')}
               </Link>
             </nav>
             <DropdownMenu>
@@ -77,8 +77,8 @@ export function Navbar() {
                    <Link href="/simulation" className="text-foreground hover:text-primary transition-colors">
                     {t('nav.simulation')}
                   </Link>
-                  <Link href="/cuestionario" className="text-foreground hover:text-primary transition-colors">
-                    {t('nav.cuestionario')}
+                  <Link href="/juegos" className="text-foreground hover:text-primary transition-colors">
+                    {t('nav.juegos')}
                   </Link>
                 </nav>
               </SheetContent>

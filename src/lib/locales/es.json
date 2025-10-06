@@ -4,7 +4,7 @@
     "comets": "Cometas",
     "explorer": "Galería",
     "simulation": "Simulación",
-    "cuestionario": "Cuestionario",
+    "juegos": "Juegos",
     "language": {
       "toggle": "Cambiar idioma"
     }
@@ -113,16 +113,28 @@
       "description": "Un área de simulación interactiva está en construcción."
     }
   },
+  "juegos": {
+    "page": {
+      "title": "Juegos Cósmicos",
+      "quiz": {
+        "title": "Cuestionario Cósmico",
+        "description": "Pon a prueba tus conocimientos sobre el universo."
+      },
+      "new_game": {
+        "title": "Juego Nuevo",
+        "description": "Próximamente..."
+      }
+    },
+    "back_to_menu": "Volver al menú de juegos"
+  },
   "cuestionario": {
     "page": {
       "title": "Cuestionario Cósmico"
     },
     "loading": "Generando preguntas...",
     "selectOption": "Selecciona la opción correcta.",
-    "submit": "Enviar Respuesta",
     "correct": "¡Correcto!",
     "incorrect": "Incorrecto",
-    "nextQuestion": "Siguiente Pregunta",
     "newQuiz": "Empezar Nuevo Cuestionario",
     "checkAnswers": "Verificar Respuestas",
     "startQuiz": "Responde y Juega",
@@ -135,7 +147,8 @@
     "perfect": "¡Perfecto! ¡Misión cumplida!",
     "good": "¡Buen trabajo! Algunos sustos.",
     "bad": "¡Por los pelos! Eso estuvo cerca.",
-    "lost": "¡Has perdido! Inténtalo de nuevo."
+    "lost": "¡Has perdido! Inténtalo de nuevo.",
+    "no_results": "Juega al cuestionario para ver tu resultado."
   },
   "toast": {
     "error": {

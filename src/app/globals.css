@@ -131,4 +131,46 @@ body {
     animation: animate-stars-3 150s linear infinite;
     opacity: 0.3;
   }
+
+  @keyframes meteor-hit {
+    0% {
+      transform: translateY(-100%) translateX(-50%) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(250%) translateX(-50%) rotate(360deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes meteor-dodge {
+    0% {
+      transform: translateY(-100%) translateX(0%) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(100%) translateX(100%) rotate(180deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(300%) translateX(150%) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(5px);
+    }
+  }
+
+  .shake-animation {
+    animation: shake 0.5s ease-in-out;
+  }
 }

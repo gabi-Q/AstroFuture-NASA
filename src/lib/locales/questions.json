@@ -1,0 +1,54 @@
+{
+  "es": [
+    {
+      "question": "¿Cuál es el planeta más grande de nuestro sistema solar?",
+      "options": ["Tierra", "Júpiter", "Marte", "Saturno"],
+      "correctAnswer": 1,
+      "explanation": "Júpiter es tan grande que todos los demás planetas del sistema solar podrían caber dentro de él."
+    },
+    {
+      "question": "¿Qué planeta es conocido como el Planeta Rojo?",
+      "options": ["Venus", "Marte", "Mercurio", "Urano"],
+      "correctAnswer": 1,
+      "explanation": "Marte es conocido como el Planeta Rojo debido a su superficie rica en óxido de hierro, que le da un aspecto rojizo."
+    },
+    {
+      "question": "¿Qué es un agujero negro?",
+      "options": ["Una estrella muy brillante", "Una región del espacio con una gravedad tan fuerte que nada puede escapar", "Un tipo de galaxia", "Un planeta sin atmósfera"],
+      "correctAnswer": 1,
+      "explanation": "Los agujeros negros son objetos increíblemente densos con una gravedad tan fuerte que ni siquiera la luz puede escapar de ellos."
+    },
+    {
+      "question": "¿Cuál es la galaxia más cercana a la Vía Láctea?",
+      "options": ["Galaxia del Sombrero", "Galaxia del Triángulo", "Galaxia de Andrómeda", "Galaxia del Remolino"],
+      "correctAnswer": 2,
+      "explanation": "La galaxia de Andrómeda es nuestro vecino galáctico más cercano y se espera que colisione con la Vía Láctea en unos 4.5 mil millones de años."
+    }
+  ],
+  "en": [
+    {
+      "question": "What is the largest planet in our solar system?",
+      "options": ["Earth", "Jupiter", "Mars", "Saturn"],
+      "correctAnswer": 1,
+      "explanation": "Jupiter is so large that all the other planets in the solar system could fit inside it."
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Venus", "Mars", "Mercury", "Uranus"],
+      "correctAnswer": 1,
+      "explanation": "Mars is known as the Red Planet due to its iron oxide-rich surface, which gives it a reddish appearance."
+    },
+    {
+      "question": "What is a black hole?",
+      "options": ["A very bright star", "A region of space with gravity so strong that nothing can escape", "A type of galaxy", "A planet without an atmosphere"],
+      "correctAnswer": 1,
+      "explanation": "Black holes are incredibly dense objects with gravity so strong that not even light can escape from them."
+    },
+    {
+      "question": "What is the closest galaxy to the Milky Way?",
+      "options": ["Sombrero Galaxy", "Triangulum Galaxy", "Andromeda Galaxy", "Whirlpool Galaxy"],
+      "correctAnswer": 2,
+      "explanation": "The Andromeda Galaxy is our closest galactic neighbor and is expected to collide with the Milky Way in about 4.5 billion years."
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ShieldAlert, Skull } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, Skull, Rocket } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 import Image from 'next/image';
-import naveImg from '../../../assets/nave.png';
+import { useEffect, useState, useMemo } from 'react';
+import naveImg from '@/../assets/nave.png';
+import meteorImg from '@/../assets/meteoro.png';
 
 interface QuizMinigameProps {
   results: boolean[];
@@ -12,19 +14,33 @@ interface QuizMinigameProps {
 
 export function QuizMinigame({ results }: QuizMinigameProps) {
     const { t } = useLanguage();
+    const [shake, setShake] = useState(false);
+    const [impacts, setImpacts] = useState<boolean[]>([]);
+
+    const meteorPositions = useMemo(() => [
+      { left: '15%', delay: '0s' }, 
+      { left: '45%', delay: '0.5s' }, 
+      { left: '75%', delay: '1.0s' }
+    ], []);
+
+    useEffect(() => {
+        const newImpacts = results.map(result => !result);
+        setImpacts(newImpacts);
+
+        const hasImpact = newImpacts.some(impact => impact);
+        if (hasImpact) {
+            const totalDuration = 1500 + (meteorPositions.length - 1) * 500;
+            setTimeout(() => {
+                setShake(true);
+                setTimeout(() => setShake(false), 500);
+            }, totalDuration);
+        }
+    }, [results, meteorPositions]);
+
     const correctAnswers = results.filter(Boolean).length;
     const totalQuestions = results.length;
 
-    // Using the exact CSS animation logic you provided.
-    const animationStyle = `
-        @keyframes myAnimation {
-            0%   { background-color: brown; top: 0px; }
-            50%  { background-color: brown; top: 200px; }
-            100% { background-color: brown; top: 0px; }
-        }
-    `;
-
-    let resultState: 'perfect' | 'good' | 'bad' | 'lost' = 'lost';
+    let resultState: 'perfect' | 'good' | 'bad' | 'lost';
     let message = '';
     let Icon = Skull;
 
@@ -49,7 +65,7 @@ export function QuizMinigame({ results }: QuizMinigameProps) {
     } else {
         message = t('minigame.no_results') || 'Play the quiz to see your result.';
         resultState = 'bad';
-        Icon = ShieldAlert;
+        Icon = Rocket;
     }
 
     const iconColor = {
@@ -61,63 +77,50 @@ export function QuizMinigame({ results }: QuizMinigameProps) {
 
     return (
         <div className="mt-8 p-6 rounded-lg bg-card/50 border border-border flex flex-col items-center gap-4">
-            <style>{animationStyle}</style>
-
-            <h3 className="text-2xl font-bold tracking-tight">{t('minigame.title')}</h3>
+            <h3 className="text-2xl font-bold tracking-tight">{totalQuestions > 0 ? t('minigame.title') : t('cuestionario.page.title')}</h3>
             <div className="relative w-full h-64 overflow-hidden flex items-center justify-center bg-[#21094E] rounded-lg border-2 border-border">
-                {/* Background elements */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-50">
                     <div className="stars w-full h-full"></div>
                     <div className="stars-2 w-full h-full"></div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full h-8 bg-cyan-600/50 backdrop-blur-sm" />
 
-                {/* Static Rocket */}
-                <div className="absolute bottom-4 z-10">
+                <div className={`absolute bottom-4 z-10 ${shake ? 'shake-animation' : ''}`}>
                     <Image src={naveImg} alt="Pixel Rocket" width={64} height={80} />
                 </div>
 
-                {/* Meteors using your exact CSS animation spec */}
-                {results.map((_, index) => (
+                {results.map((isCorrect, index) => {
+                  const animationName = isCorrect ? 'meteor-dodge' : 'meteor-hit';
+                  const position = meteorPositions[index % meteorPositions.length];
+
+                  return (
                     <div
-                        key={index}
-                        style={{
-                            position: 'absolute',
-                            // This outer div handles the horizontal positioning
-                            left: `${20 + index * 25}%`,
-                        }}
+                      key={index}
+                      className="absolute top-0"
+                      style={{
+                        left: position.left,
+                        animation: `${animationName} 1.5s ease-in-out forwards`,
+                        animationDelay: position.delay,
+                      }}
                     >
-                        <div 
-                            style={{
-                                width: '50px', // Adjusted size for visibility
-                                height: '50px',
-                                backgroundColor: 'brown',
-                                position: 'relative', // As in your example, for the animation to work
-                                animationName: 'myAnimation',
-                                animationDuration: '4s',
-                                animationDirection: 'reverse',
-                                animationDelay: `${index * 1}s`,
-                                animationFillMode: 'forwards',
-                                animationIterationCount: 1, // Run the animation only once
-                            }}
-                        />
+                        <Image src={meteorImg} alt="Meteor" width={50} height={50} />
                     </div>
-                ))}
+                  );
+                })}
             </div>
 
-            {/* Result display */}
             <AnimatePresence>
-                {totalQuestions > 0 && (
+                {
                     <motion.div
                         className="flex items-center gap-3 text-center"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1, duration: 0.5 }}
+                        transition={{ delay: totalQuestions > 0 ? 1 : 0, duration: 0.5 }}
                     >
                         <Icon className={`w-8 h-8 ${iconColor}`} />
                         <p className={`text-xl font-semibold ${iconColor}`}>{message}</p>
                     </motion.div>
-                )}
+                }
             </AnimatePresence>
         </div>
     );

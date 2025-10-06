@@ -4,7 +4,7 @@
     "comets": "Comets",
     "explorer": "Gallery",
     "simulation": "Simulation",
-    "cuestionario": "Quiz",
+    "juegos": "Games",
     "language": {
       "toggle": "Change language"
     }
@@ -113,16 +113,28 @@
       "description": "An interactive simulation area is under construction."
     }
   },
+  "juegos": {
+    "page": {
+      "title": "Cosmic Games",
+      "quiz": {
+        "title": "Cosmic Quiz",
+        "description": "Test your knowledge about the universe."
+      },
+      "new_game": {
+        "title": "New Game",
+        "description": "Coming soon..."
+      }
+    },
+    "back_to_menu": "Back to games menu"
+  },
   "cuestionario": {
     "page": {
       "title": "Cosmic Quiz"
     },
     "loading": "Generating questions...",
     "selectOption": "Select the correct option.",
-    "submit": "Submit Answer",
     "correct": "Correct!",
     "incorrect": "Incorrect",
-    "nextQuestion": "Next Question",
     "newQuiz": "Start New Quiz",
     "checkAnswers": "Check Answers",
     "startQuiz": "Answer and Play",
@@ -135,7 +147,8 @@
     "perfect": "Perfect! Mission accomplished!",
     "good": "Good job! A few close calls.",
     "bad": "Barely made it! That was close.",
-    "lost": "You lost! Try again."
+    "lost": "You lost! Try again.",
+    "no_results": "Play the quiz to see your result."
   },
   "toast": {
     "error": {
