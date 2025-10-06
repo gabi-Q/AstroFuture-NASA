@@ -6,37 +6,38 @@
     "simulation": "Simulation",
     "juegos": "Games",
     "language": {
-      "toggle": "Change language"
-    }
+      "toggle": "Toggle language"
+    },
+    "aprende": "Learn"
   },
   "home": {
     "hero": {
       "title": "Explore the Cosmos with ASTRO FUTURE!",
       "subtitle": "Learn about asteroids, comets, and more through interactive 3D simulations.",
-      "cta": "Start now!"
+      "cta": "Get started now!"
     },
     "what_is": {
       "title": "What is ASTRO FUTURE?",
-      "description": "ASTRO FUTURE is an educational platform that transforms complex space data from NASA into interactive experiences. Explore asteroids and comets in 3D, modify their orbit, and see how the impact on the planet changes. With our virtual assistant, learning about space has never been so fun!"
+      "description": "ASTRO FUTURE is an educational platform that transforms complex space data from NASA into interactive experiences. Explore asteroids and comets in 3D, modify their orbits, and see how the impact on the planet changes. With our virtual assistant, learning about space has never been more fun!"
     },
     "how_it_works": {
-      "title": "How does it work?",
+      "title": "How It Works?",
       "simulations": {
         "title": "3D Simulations",
         "description": "Explore space in a visual and interactive way."
       },
       "assistant": {
-        "title": "Virtual assistant",
-        "description": "Learn with the help of a smart guide that will help you at every step."
+        "title": "Virtual Assistant",
+        "description": "Learn with the help of a smart guide who will assist you every step of the way."
       },
       "learning": {
-        "title": "Active learning",
+        "title": "Active Learning",
         "description": "You don't just read about space, you experience it!"
       }
     },
     "why_it_is_important": {
       "title": "Why is it important?",
-      "description": "The STEM vocation in Peru is low, but with ASTRO FUTURE, we transform learning about science and technology into something interactive and fun. Our mission is to make it possible for everyone, from students to space enthusiasts, to understand the mysteries of the universe."
+      "description": "The STEM vocation in Peru is low, but with ASTRO FUTURE, we transform learning about science and technology into something interactive and fun. Our mission is to make the mysteries of the universe understandable for everyone, from students to space enthusiasts."
     },
     "cta": {
       "title": "It's your turn to explore the cosmos!",
@@ -52,13 +53,13 @@
     "explore": "Explore"
   },
   "explorer": {
-    "title": "Cosmic Object Gallery",
+    "title": "Cosmic Objects Gallery",
     "searchPlaceholder": "Search objects...",
     "filterByType": "Filter by type",
     "allTypes": "All types",
-    "potentiallyHazardous": "Potentially Hazardous",
+    "potentiallyHazardous": "Potentially hazardous",
     "noObjectsFound": {
-      "title": "No Objects Found",
+      "title": "No objects found",
       "subtitle": "Try adjusting your search or filters."
     }
   },
@@ -91,7 +92,7 @@
       "title": "AI Explanation",
       "button": "Explain",
       "loading": "Generating...",
-      "dialogTitle": "Explanation for"
+      "dialogTitle": "Explanation of"
     },
     "hypothetical": {
       "title": "Hypothetical Scenarios",
@@ -108,8 +109,8 @@
     "period": "Sim. Period",
     "eccentricity": "Eccentricity",
     "page": {
-      "title": "Simulation Hub",
-      "subtitle": "Coming Soon",
+      "title": "Simulation Center",
+      "subtitle": "Coming soon",
       "description": "An interactive simulation area is under construction."
     }
   },
@@ -145,15 +146,15 @@
   "minigame": {
     "title": "Quiz Result",
     "perfect": "Perfect! Mission accomplished!",
-    "good": "Good job! A few close calls.",
-    "bad": "Barely made it! That was close.",
+    "good": "Good job! A few scares.",
+    "bad": "Close call! That was a close one.",
     "lost": "You lost! Try again.",
     "no_results": "Play the quiz to see your result."
   },
   "toast": {
     "error": {
       "title": "Error",
-      "defaultAi": "Could not generate the explanation.",
+      "defaultAi": "Could not generate explanation.",
       "scenarioRequired": "Please write a hypothetical scenario.",
       "scenarioFailed": "Could not evaluate the scenario."
     }
@@ -166,5 +167,8 @@
   },
   "common": {
     "close": "Close"
+  },
+  "aprende": {
+    "title": "Learn about the Cosmos"
   }
 }

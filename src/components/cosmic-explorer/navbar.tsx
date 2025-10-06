@@ -31,7 +31,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 md:gap-6">
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
               <Link href="/aprende" className="text-foreground hover:text-primary transition-colors">
-                Aprende
+                {t('nav.aprende')}
               </Link>
               <Link href="/explorer" className="text-foreground hover:text-primary transition-colors">
                 {t('nav.explorer')}
@@ -69,7 +69,7 @@ export function Navbar() {
               <SheetContent side="left">
                 <nav className="grid gap-6 text-lg font-medium mt-8">
                   <Link href="/aprende" className="text-foreground hover:text-primary transition-colors">
-                    Aprende
+                    {t('nav.aprende')}
                   </Link>
                   <Link href="/explorer" className="text-foreground hover:text-primary transition-colors">
                     {t('nav.explorer')}

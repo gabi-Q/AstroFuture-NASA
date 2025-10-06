@@ -23,6 +23,18 @@
       "options": ["Galaxia del Sombrero", "Galaxia del Triángulo", "Galaxia de Andrómeda", "Galaxia del Remolino"],
       "correctAnswer": 2,
       "explanation": "La galaxia de Andrómeda es nuestro vecino galáctico más cercano y se espera que colisione con la Vía Láctea en unos 4.5 mil millones de años."
+    },
+    {
+      "question": "¿De qué están hechos principalmente los cometas?",
+      "options": ["Roca y metal", "Hielo y polvo", "Gas caliente", "Metal líquido"],
+      "correctAnswer": 1,
+      "explanation": "Los cometas son a menudo descritos como 'bolas de nieve sucias' porque están compuestos de hielo, polvo y compuestos orgánicos."
+    },
+    {
+      "question": "¿Entre qué dos planetas se encuentra principalmente el cinturón de asteroides?",
+      "options": ["Tierra y Marte", "Marte y Júpiter", "Júpiter y Saturno", "Saturno y Urano"],
+      "correctAnswer": 1,
+      "explanation": "La gran mayoría de los asteroides del sistema solar se encuentran en el cinturón de asteroides, localizado entre las órbitas de Marte y Júpiter."
     }
   ],
   "en": [
@@ -49,6 +61,18 @@
       "options": ["Sombrero Galaxy", "Triangulum Galaxy", "Andromeda Galaxy", "Whirlpool Galaxy"],
       "correctAnswer": 2,
       "explanation": "The Andromeda Galaxy is our closest galactic neighbor and is expected to collide with the Milky Way in about 4.5 billion years."
+    },
+    {
+      "question": "What are comets primarily made of?",
+      "options": ["Rock and metal", "Ice and dust", "Hot gas", "Liquid metal"],
+      "correctAnswer": 1,
+      "explanation": "Comets are often described as 'dirty snowballs' because they are composed of ice, dust, and organic compounds."
+    },
+    {
+      "question": "Between which two planets is the asteroid belt primarily located?",
+      "options": ["Earth and Mars", "Mars and Jupiter", "Jupiter and Saturn", "Saturn and Uranus"],
+      "correctAnswer": 1,
+      "explanation": "The vast majority of solar system asteroids are found in the asteroid belt, located between the orbits of Mars and Jupiter."
     }
   ]
 }
